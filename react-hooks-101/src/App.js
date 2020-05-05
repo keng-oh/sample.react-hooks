@@ -1,8 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const App = props => {
   const [state, setState] = useState(props)
   const {name, price} = state
+
+  useEffect(() => {
+    console.log('called everytime')
+  })
+
+  useEffect(() => {
+    console.log('called once')
+  }, [])
+
+  useEffect(() => {
+    console.log('called when name changed')
+  }, [name])
+
 
   return (
     <>
